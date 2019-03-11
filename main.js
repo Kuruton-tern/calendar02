@@ -1,0 +1,10 @@
+const weeks = ['日','月', '火', '水', '木', '金', '土' ];
+  console.log(weeks[1]);
+var date = new Date();
+  console.log(date);
+var year = date.getFullYear();
+  console.log(year);
+var month = date.getMonth() + 1;
+  console.log(month);
+var startDate = new Date(year, month - 1, 1);
+  console.log(startDate);
