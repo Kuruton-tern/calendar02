@@ -8,3 +8,5 @@ var month = date.getMonth() + 1;
   console.log(month);
 var startDate = new Date(year, month - 1, 1);
   console.log(startDate);
+var endDate = new Date(year, month, 0);
+  console.log(endDate);
