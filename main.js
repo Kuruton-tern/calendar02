@@ -11,9 +11,47 @@ var startDate = new Date(year, month - 1, 1);
   console.log(startDate);
 var endDate = new Date(year, month, 0);
   console.log(endDate);
-var endDayCount = endDate.getDate();  //その月の末尾を取得（MAXで何日なのか？を知るのに必要）/getDate()の返り値は1〜31の整数/指定された日付の「日」を返す。getDate()だけでは使えない。
+var endDayCount = endDate.getDate();
 console.log(endDayCount);
-var startDay = startDate.getDay();  //その月の最初の曜日を取得（整数で。月曜が１）
+var startDay = startDate.getDay(); 
 console.log(startDay);
 var dayCount = 1; //日にちのカウント
 var calendarHtml = '';　//HTMLを組み立てる変数
+
+calendarHtml += "<th>" + year + "/" + month + "</th>";
+  console.log(calendarHtml);
+calendarHtml += '<table>'
+
+//曜日のループを作成
+for(var i = 0; i < weeks.length; i++){
+calendarHtml += '<td>' + weeks[i] + '</td>';
+}
+  console.log(calendarHtml);
+
+//行のループを作成
+for(var row = 0; row < 6; row++){
+calendarHtml += '<tr>'
+
+  //列のループを作成
+    for(var col = 0; col < 7; col++){
+     //もし行が0で、かつ列が1日の曜日よりも数が少なかったら
+       if(row == 0 && col < startDay){
+        //空欄のマス目を作る
+         calendarHtml += '<td></td>';
+
+        //最終行で、もし最終日よりもあとにマス目が続くなら
+       } else if (dayCount > endDayCount){
+          //空欄のマス目を作る
+          calendarHtml += '<td></td>';
+        //それ以外なら（1日〜31日までなら）、日にちが進む
+       } else {
+          calendarHtml += '<td>' + dayCount + '</td>';
+          dayCount++;
+       }
+    }
+  calendarHtml +='</tr>';
+}
+calendarHtml += '</table>';
+
+ document.write(calendarHtml);
+
