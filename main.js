@@ -18,13 +18,13 @@ console.log(startDay);
 var dayCount = 1; //日にちのカウント
 var calendarHtml = '';　//HTMLを組み立てる変数
 
-calendarHtml += "<th>" + year + "/" + month + "</th>";
+calendarHtml += "<h1>" + year + "/" + month + "</h1>";
   console.log(calendarHtml);
 calendarHtml += '<table>'
 
 //曜日のループを作成
 for(var i = 0; i < weeks.length; i++){
-calendarHtml += '<td>' + weeks[i] + '</td>';
+calendarHtml += '<th>' + weeks[i] + '</th>';
 }
   console.log(calendarHtml);
 
